@@ -1,0 +1,517 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10/"
+     xml:base="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:v1="http://purl.org/goodrelations/v1#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:untitled-ontology-10="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts">
+        <owl:imports rdf:resource="http://purl.org/goodrelations/v1"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#belongsToTransaction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#belongsToTransaction">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasBuyer"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasSeller"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Seller"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasBuyer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasBuyer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasName -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasName">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Seller"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasSeller -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasSeller">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction"/>
+        <rdfs:range rdf:resource="http://schema.org/Organization"/>
+        <rdfs:range rdf:resource="http://schema.org/Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#destination -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#destination">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#address"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#hasStatus -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#hasStatus">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping_status"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#origin -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#origin">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#address"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#tracking_number -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#tracking_number">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#ProductOrServiceModel -->
+
+    <rdf:Description rdf:about="http://purl.org/goodrelations/v1#ProductOrServiceModel">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://schema.org/Person -->
+
+    <owl:Class rdf:about="http://schema.org/Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Seller -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Seller"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Communication_Devices -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Communication_Devices">
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Input"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Other"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Output"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Processing"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#GamingChair -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#GamingChair">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Other"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Motherboard"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#PowerSupply"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Hard_drive -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Hard_drive">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#RAM"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Input -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Input">
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Other"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Output"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Processing"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Motherboard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Motherboard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Other"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#PowerSupply"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Other -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Other">
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Output"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Processing"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Output -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Output">
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Processing"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#PowerSupply -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#PowerSupply">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Other"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Processing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Processing">
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#RAM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#RAM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage">
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#address -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#address">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#audio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#audio">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Output"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#monitor"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#printer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#bluetooth_adapter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#bluetooth_adapter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Communication_Devices"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#cable"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#wifi_adapter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#cable -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#cable">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Communication_Devices"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#wifi_adapter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#company -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#company">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#cpu -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#cpu">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Processing"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#gpu"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#gpu -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#gpu">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Processing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#keyboard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#keyboard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Input"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#mouse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#monitor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#monitor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Output"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#printer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#mouse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#mouse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Input"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#printer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#printer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Output"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#destination"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#address"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#origin"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#address"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#hasStatus"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping_status"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping_status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping_status -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping_status"/>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#wifi_adapter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#wifi_adapter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Communication_Devices"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Person1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Person1">
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Seller"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Person2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Person2">
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Person3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Person3">
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction_1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#organization1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#organization1">
+        <rdf:type rdf:resource="http://schema.org/Organization"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping"/>
+        <untitled-ontology-10:tracking_number>FR103432424252</untitled-ontology-10:tracking_number>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#65_rue_Jean_Vilar,_BesanÇon,France -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#65_rue_Jean_Vilar,_BesanÇon,France">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#address"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#DHL_(shipping) -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#DHL_(shipping)">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Fedex(shipping) -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Fedex(shipping)">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#UPS(shipping) -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#UPS(shipping)">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#ongoing(shipping_status) -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#ongoing(shipping_status)">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping_status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipped(shipping_status) -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipped(shipping_status)">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping_status"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
