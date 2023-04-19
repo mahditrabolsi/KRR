@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts" uri="catalog-v001.xml"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1681891136813" name="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10/" uri="kr.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1681940113562" name="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10/" uri="kr.rdf"/>
     </group>
 </catalog>

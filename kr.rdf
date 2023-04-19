@@ -30,7 +30,6 @@
 
     <!-- http://www.semanticweb.org/anis/ontologies/2023/3/untitled-ontology-8#hasShipping -->
 
-
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/anis/ontologies/2023/3/untitled-ontology-8#hasShipping">
         <rdfs:domain>
             <owl:Class>
@@ -43,7 +42,12 @@
         <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping"/>
         <rdfs:comment>This specifies the gr:shipping made for the given gr:Offering.</rdfs:comment>
         <rdfs:label>hasshipping (1..1)</rdfs:label>
-</owl:ObjectProperty>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#belongsToTransaction -->
+
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#belongsToTransaction">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasBuyer"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasSeller"/>
@@ -61,6 +65,8 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction"/>
         <rdfs:range rdf:resource="http://schema.org/Organization"/>
         <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <rdfs:comment>An object property that relates a transaction to the person or entity that purchases the product or service. In the context of an e-commerce system, a transaction can have one or more buyers. The hasBuyer property can be used to link a transaction to the buyer or buyers involved in the transaction. Buyers can be represented using the Person class from Schema.org or a custom class that extends it.</rdfs:comment>
+        <rdfs:label>has Buyer</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -90,6 +96,8 @@
         <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction"/>
         <rdfs:range rdf:resource="http://schema.org/Organization"/>
         <rdfs:range rdf:resource="http://schema.org/Person"/>
+        <rdfs:comment>An object property that relates a transaction to the person or organization that offers the product or service for sale. In the context of an e-commerce system, a transaction typically has one seller. The hasSeller property can be used to link a transaction to the seller involved in the transaction. Sellers can be represented using the Person or Organization classes from Schema.org or a custom class that extends them.</rdfs:comment>
+        <rdfs:label>has Seller</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -153,7 +161,6 @@
         <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#address"/>
         <rdfs:comment>The point or place where something begins, arises, or is derived.</rdfs:comment>
         <rdfs:label>Origin</rdfs:label>
-
     </owl:ObjectProperty>
     
 
@@ -161,7 +168,7 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
-    // Classes
+    // Data properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
@@ -169,8 +176,6 @@
     
 
 
-
-    <!-- http://purl.org/goodrelations/v1#Offering -->
     <!-- http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#tracking_number -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#tracking_number">
@@ -191,6 +196,11 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#Offering -->
+
     <rdf:Description rdf:about="http://purl.org/goodrelations/v1#Offering">
         <owl:disjointWith rdf:resource="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
     </rdf:Description>
@@ -202,7 +212,6 @@
     <rdf:Description rdf:about="http://purl.org/goodrelations/v1#ProductOrServiceModel">
         <owl:disjointWith rdf:resource="http://purl.org/goodrelations/v1#WarrantyPromise"/>
     </rdf:Description>
-
     
 
 
@@ -214,7 +223,10 @@
 
     <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer">
+        <rdfs:comment>A person or entity that purchases a product or service from a seller. In the context of an e-commerce system, a buyer typically selects products or services, places an order, and pays for the items purchased. Buyers may have certain rights or responsibilities in the transaction, such as the right to receive a refund if the product is defective or the responsibility to pay for shipping and handling fees.</rdfs:comment>
+        <rdfs:label>Customer who buys a product</rdfs:label>
+    </owl:Class>
     
 
 
@@ -232,7 +244,10 @@ Examples: Bitcoin.</rdfs:comment>
 
     <!-- http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Seller -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Seller"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Seller">
+        <rdfs:comment>A person or organization that offers products or services for sale to buyers. In the context of an e-commerce system, a seller typically creates product listings, receives orders from buyers, ships the items purchased, and receives payment for the sale. Sellers may have legal or ethical obligations to their buyers, such as the obligation to provide accurate product descriptions, to deliver products within a certain timeframe, or to honor refunds and returns.</rdfs:comment>
+        <rdfs:label>Person or organization who sells a product</rdfs:label>
+    </owl:Class>
     
 
 
@@ -622,9 +637,9 @@ Example: ongoing,shipped.</rdfs:comment>
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipped(shipping_status)">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping_status"/>
     </owl:NamedIndividual>
-
 </rdf:RDF>
 
 
 
 <!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
