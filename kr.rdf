@@ -39,6 +39,8 @@
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping"/>
+        <rdfs:comment>This specifies the gr:shipping made for the given gr:Offering.</rdfs:comment>
+        <rdfs:label>hasshipping (1..1)</rdfs:label>
     </owl:ObjectProperty>
     
 
