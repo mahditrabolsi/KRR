@@ -1,0 +1,428 @@
+@prefix : <http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix v1: <http://purl.org/goodrelations/v1#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix untitled-ontology-10: <http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#> .
+@base <http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10/> .
+
+<http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts> rdf:type owl:Ontology ;
+                                                                 owl:imports <http://purl.org/goodrelations/v1> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/anis/ontologies/2023/3/untitled-ontology-8#hasShipping
+<http://www.semanticweb.org/anis/ontologies/2023/3/untitled-ontology-8#hasShipping> rdf:type owl:ObjectProperty ;
+                                                                                    rdfs:domain [ rdf:type owl:Class ;
+                                                                                                  owl:unionOf ( v1:Offering
+                                                                                                                <http://schema.org/Offer>
+                                                                                                              )
+                                                                                                ] ;
+                                                                                    rdfs:range untitled-ontology-10:shipping ;
+                                                                                    rdfs:comment "This specifies the gr:shipping made for the given gr:Offering." ;
+                                                                                    rdfs:label "hasshipping (1..1)" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#belongsToTransaction
+:belongsToTransaction rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :hasBuyer ,
+                                    :hasSeller ;
+                      rdf:type owl:FunctionalProperty ;
+                      rdfs:domain :Seller ;
+                      owl:propertyDisjointWith :hasDate .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasBuyer
+:hasBuyer rdf:type owl:ObjectProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain :Transaction ;
+          rdfs:range <http://schema.org/Organization> ,
+                     <http://schema.org/Person> ;
+          rdfs:comment "An object property that relates a transaction to the person or entity that purchases the product or service. In the context of an e-commerce system, a transaction can have one or more buyers. The hasBuyer property can be used to link a transaction to the buyer or buyers involved in the transaction. Buyers can be represented using the Person class from Schema.org or a custom class that extends it." ;
+          rdfs:label "has Buyer" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasDate
+:hasDate rdf:type owl:ObjectProperty ;
+         rdfs:domain :Transaction ;
+         rdfs:comment "The date and time in which the transaction was completed"@en ;
+         rdfs:label "has date"@en .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasName
+:hasName rdf:type owl:ObjectProperty ;
+         rdfs:range :Buyer ,
+                    :Seller .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#hasSeller
+:hasSeller rdf:type owl:ObjectProperty ;
+           rdfs:domain :Transaction ;
+           rdfs:range <http://schema.org/Organization> ,
+                      <http://schema.org/Person> ;
+           rdfs:comment "An object property that relates a transaction to the person or organization that offers the product or service for sale. In the context of an e-commerce system, a transaction typically has one seller. The hasSeller property can be used to link a transaction to the seller involved in the transaction. Sellers can be represented using the Person or Organization classes from Schema.org or a custom class that extends them." ;
+           rdfs:label "has Seller" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#has_payment_ammount
+:has_payment_ammount rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf v1:hasPriceSpecification ;
+                     rdfs:domain :Transaction ;
+                     rdfs:range v1:PaymentMethod ;
+                     rdfs:comment "The final amount to be paid for the transaction."@en ;
+                     rdfs:label "has payment amount"@en .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#has_payment_method
+:has_payment_method rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf v1:hasPriceSpecification ;
+                    rdfs:domain :Transaction ;
+                    rdfs:range v1:PaymentMethod ;
+                    rdfs:comment "The payment method chosen for the transaction"@en ;
+                    rdfs:label "Has payment method"@en .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#has_product
+:has_product rdf:type owl:ObjectProperty ;
+             rdfs:domain :Transaction ;
+             rdfs:range v1:ProductOrServiceModel ;
+             rdfs:comment "The product consideret for this transaction"@en ;
+             rdfs:label "has product"@en .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#destination
+untitled-ontology-10:destination rdf:type owl:ObjectProperty ;
+                                 rdfs:range untitled-ontology-10:address ;
+                                 rdfs:comment "The place to which someone or something is going or being sent." ;
+                                 rdfs:label "Destination" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#hasStatus
+untitled-ontology-10:hasStatus rdf:type owl:ObjectProperty ;
+                               rdfs:range untitled-ontology-10:shipping_status .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#origin
+untitled-ontology-10:origin rdf:type owl:ObjectProperty ;
+                            rdfs:range untitled-ontology-10:address ;
+                            rdfs:comment "The point or place where something begins, arises, or is derived." ;
+                            rdfs:label "Origin" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#tracking_number
+untitled-ontology-10:tracking_number rdf:type owl:DatatypeProperty ;
+                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                     rdfs:domain untitled-ontology-10:shipping ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:comment "A unique code that helps identify each package shipment." ;
+                                     rdfs:label "Tracking  number" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/goodrelations/v1#Offering
+v1:Offering owl:disjointWith v1:ProductOrServiceModel .
+
+
+###  http://purl.org/goodrelations/v1#ProductOrServiceModel
+v1:ProductOrServiceModel owl:disjointWith v1:WarrantyPromise .
+
+
+###  http://schema.org/Person
+<http://schema.org/Person> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Buyer
+:Buyer rdf:type owl:Class ;
+       rdfs:comment "A person or entity that purchases a product or service from a seller. In the context of an e-commerce system, a buyer typically selects products or services, places an order, and pays for the items purchased. Buyers may have certain rights or responsibilities in the transaction, such as the right to receive a refund if the product is defective or the responsibility to pay for shipping and handling fees." ;
+       rdfs:label "Customer who buys a product" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Payment_method_Crypto
+:Payment_method_Crypto rdf:type owl:Class ;
+                       rdfs:subClassOf v1:PaymentMethod ;
+                       rdfs:comment """The subclass of gr:PaymentMethod represents all variants cryptos for transferring the monetary amount for a purchase. It is mostly used for specifying the types of payment accepted by a gr:Business Entity.
+
+Examples: Bitcoin."""@en ;
+                       rdfs:label "Payment method Crypto"@en .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Seller
+:Seller rdf:type owl:Class ;
+        rdfs:comment "A person or organization that offers products or services for sale to buyers. In the context of an e-commerce system, a seller typically creates product listings, receives orders from buyers, ships the items purchased, and receives payment for the sale. Sellers may have legal or ethical obligations to their buyers, such as the obligation to provide accurate product descriptions, to deliver products within a certain timeframe, or to honor refunds and returns." ;
+        rdfs:label "Person or organization who sells a product" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction
+:Transaction rdf:type owl:Class ;
+             rdfs:comment "The actual transaction or order details"@en ;
+             rdfs:label "Transaction"@en .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Communication_Devices
+untitled-ontology-10:Communication_Devices rdf:type owl:Class ;
+                                           rdfs:subClassOf v1:ProductOrServiceModel ;
+                                           owl:disjointWith untitled-ontology-10:Input ,
+                                                            untitled-ontology-10:Other ,
+                                                            untitled-ontology-10:Output ,
+                                                            untitled-ontology-10:Processing ,
+                                                            untitled-ontology-10:Storage .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#GamingChair
+untitled-ontology-10:GamingChair rdf:type owl:Class ;
+                                 rdfs:subClassOf untitled-ontology-10:Other ;
+                                 owl:disjointWith untitled-ontology-10:Motherboard ,
+                                                  untitled-ontology-10:PowerSupply .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Hard_drive
+untitled-ontology-10:Hard_drive rdf:type owl:Class ;
+                                rdfs:subClassOf untitled-ontology-10:Storage ;
+                                owl:disjointWith untitled-ontology-10:RAM .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Input
+untitled-ontology-10:Input rdf:type owl:Class ;
+                           rdfs:subClassOf v1:ProductOrServiceModel ;
+                           owl:disjointWith untitled-ontology-10:Other ,
+                                            untitled-ontology-10:Output ,
+                                            untitled-ontology-10:Processing ,
+                                            untitled-ontology-10:Storage .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Motherboard
+untitled-ontology-10:Motherboard rdf:type owl:Class ;
+                                 rdfs:subClassOf untitled-ontology-10:Other ;
+                                 owl:disjointWith untitled-ontology-10:PowerSupply .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Other
+untitled-ontology-10:Other rdf:type owl:Class ;
+                           rdfs:subClassOf v1:ProductOrServiceModel ;
+                           owl:disjointWith untitled-ontology-10:Output ,
+                                            untitled-ontology-10:Processing ,
+                                            untitled-ontology-10:Storage .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Output
+untitled-ontology-10:Output rdf:type owl:Class ;
+                            rdfs:subClassOf v1:ProductOrServiceModel ;
+                            owl:disjointWith untitled-ontology-10:Processing ,
+                                             untitled-ontology-10:Storage .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#PowerSupply
+untitled-ontology-10:PowerSupply rdf:type owl:Class ;
+                                 rdfs:subClassOf untitled-ontology-10:Other .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Processing
+untitled-ontology-10:Processing rdf:type owl:Class ;
+                                rdfs:subClassOf v1:ProductOrServiceModel ;
+                                owl:disjointWith untitled-ontology-10:Storage .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#RAM
+untitled-ontology-10:RAM rdf:type owl:Class ;
+                         rdfs:subClassOf untitled-ontology-10:Storage .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Storage
+untitled-ontology-10:Storage rdf:type owl:Class ;
+                             rdfs:subClassOf v1:ProductOrServiceModel .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#address
+untitled-ontology-10:address rdf:type owl:Class ;
+                             owl:disjointWith untitled-ontology-10:shipping ;
+                             rdfs:comment """Address is the particulars of the place where someone lives or an organization is situated.
+
+Ex: (52 rue Jean Vilar,Besancon,France)""" ;
+                             rdfs:label "Address" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#audio
+untitled-ontology-10:audio rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-10:Output ;
+                           owl:disjointWith untitled-ontology-10:monitor ,
+                                            untitled-ontology-10:printer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#bluetooth_adapter
+untitled-ontology-10:bluetooth_adapter rdf:type owl:Class ;
+                                       rdfs:subClassOf untitled-ontology-10:Communication_Devices ;
+                                       owl:disjointWith untitled-ontology-10:cable ,
+                                                        untitled-ontology-10:wifi_adapter .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#cable
+untitled-ontology-10:cable rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-10:Communication_Devices ;
+                           owl:disjointWith untitled-ontology-10:wifi_adapter .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#company
+untitled-ontology-10:company rdf:type owl:Class ;
+                             owl:disjointWith untitled-ontology-10:shipping ;
+                             rdfs:comment """A company is any company that deals with providing a product ot a service.
+
+Example:DHL (provides Shipping)""" ;
+                             rdfs:label "Company" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#cpu
+untitled-ontology-10:cpu rdf:type owl:Class ;
+                         rdfs:subClassOf untitled-ontology-10:Processing ;
+                         owl:disjointWith untitled-ontology-10:gpu .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#gpu
+untitled-ontology-10:gpu rdf:type owl:Class ;
+                         rdfs:subClassOf untitled-ontology-10:Processing .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#keyboard
+untitled-ontology-10:keyboard rdf:type owl:Class ;
+                              rdfs:subClassOf untitled-ontology-10:Input ;
+                              owl:disjointWith untitled-ontology-10:mouse .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#monitor
+untitled-ontology-10:monitor rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-10:Output ;
+                             owl:disjointWith untitled-ontology-10:printer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#mouse
+untitled-ontology-10:mouse rdf:type owl:Class ;
+                           rdfs:subClassOf untitled-ontology-10:Input .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#printer
+untitled-ontology-10:printer rdf:type owl:Class ;
+                             rdfs:subClassOf untitled-ontology-10:Output .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping
+untitled-ontology-10:shipping rdf:type owl:Class ;
+                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                owl:onProperty untitled-ontology-10:destination ;
+                                                owl:someValuesFrom untitled-ontology-10:address
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty untitled-ontology-10:origin ;
+                                                owl:someValuesFrom untitled-ontology-10:address
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty untitled-ontology-10:hasStatus ;
+                                                owl:allValuesFrom untitled-ontology-10:shipping_status
+                                              ] ;
+                              owl:disjointWith untitled-ontology-10:shipping_status ;
+                              rdfs:comment "a shipping is a an object which refers to the details of shipping of a product." ;
+                              rdfs:label "Shipping" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping_status
+untitled-ontology-10:shipping_status rdf:type owl:Class ;
+                                     rdfs:comment """shipping status refers to the status of shipping for a product.
+
+Example: ongoing,shipped.""" ;
+                                     rdfs:label "Shipping status" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#wifi_adapter
+untitled-ontology-10:wifi_adapter rdf:type owl:Class ;
+                                  rdfs:subClassOf untitled-ontology-10:Communication_Devices .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Person1
+:Person1 rdf:type owl:NamedIndividual ,
+                  <http://schema.org/Person> ,
+                  :Seller .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Person2
+:Person2 rdf:type owl:NamedIndividual ,
+                  <http://schema.org/Person> ,
+                  :Buyer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Person3
+:Person3 rdf:type owl:NamedIndividual ,
+                  <http://schema.org/Person> ,
+                  :Buyer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Transaction_1
+:Transaction_1 rdf:type owl:NamedIndividual ,
+                        :Transaction .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#organization1
+:organization1 rdf:type owl:NamedIndividual ,
+                        <http://schema.org/Organization> ,
+                        :Buyer .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Bitcoin_(payment_method)
+<http://www.semanticweb.org/hp/ontologies/2023/3/ComputerParts#Bitcoin_(payment_method)> rdf:type owl:NamedIndividual ,
+                                                                                                  :Payment_method_Crypto ;
+                                                                                         rdfs:comment "This payment method is accepted by direct transfer of bitcoin and the ammount is following its current rate"@en ;
+                                                                                         rdfs:label "Bitcoin (payment method)"@en .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipping1
+untitled-ontology-10:shipping1 rdf:type owl:NamedIndividual ,
+                                        untitled-ontology-10:shipping ;
+                               untitled-ontology-10:tracking_number "FR103432424252" .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#65_rue_Jean_Vilar,_BesanÇon,France
+<http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#65_rue_Jean_Vilar,_BesanÇon,France> rdf:type owl:NamedIndividual ,
+                                                                                                                   untitled-ontology-10:address .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#DHL_(shipping)
+<http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#DHL_(shipping)> rdf:type owl:NamedIndividual ,
+                                                                                               untitled-ontology-10:company .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Fedex(shipping)
+<http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#Fedex(shipping)> rdf:type owl:NamedIndividual ,
+                                                                                                untitled-ontology-10:company .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#UPS(shipping)
+<http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#UPS(shipping)> rdf:type owl:NamedIndividual ,
+                                                                                              untitled-ontology-10:company .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#ongoing(shipping_status)
+<http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#ongoing(shipping_status)> rdf:type owl:NamedIndividual ,
+                                                                                                         untitled-ontology-10:shipping_status .
+
+
+###  http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipped(shipping_status)
+<http://www.semanticweb.org/hp/ontologies/2023/3/untitled-ontology-10#shipped(shipping_status)> rdf:type owl:NamedIndividual ,
+                                                                                                         untitled-ontology-10:shipping_status .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
