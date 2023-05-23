@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Ontology Browser</title>
+<meta http-equiv='content-type' content='text/html;charset=UTF-8'>
+<link rel='stylesheet' href='../css/default.css' type='text/css' />
+</head>
+
+<body>
+
+<div id='tabs'>
+<a href='../ontologies/index.html' class='' >Ontologies</a>
+<a href='../classes/index.html' class='' >Classes</a>
+<a href='../objectproperties/index.html' class='' >Object Properties</a>
+<a href='index.html' class='' >Data Properties</a>
+<a href='../annotationproperties/index.html' class='' >Annotation Properties</a>
+<a href='../individuals/index.html' class='' >Individuals</a>
+<a href='../datatypes/index.html' class='' >Datatypes</a>
+<a href='../cloud/' class='' >Clouds</a>
+</div> <!-- tabs -->
+
+
+<div class='summary'><h2>Data Property: 'has Stock Keeping Unit (0..*)'</h2>
+
+<div id='annotations_(3)'>
+<h4>Annotations (3)</h4>
+<div class='codebox'>
+<ul>
+<li class="asserted"><a href="../annotationproperties/comment___1501100887.html" class='Annotation Property' title="http://www.w3.org/2000/01/rdf-schema#comment">rdfs:comment</a> <span class='literal'>"The Stock Keeping Unit, or SKU is a unique identifier for a product, service, or bundle from the perspective of a particular supplier, i.e. SKUs are mostly assigned and serialized at the merchant level. <br />Examples of SKUs are the ordering or parts numbers used by a particular Web shop or catalog.<br /><br />Consequently, the domain of gr:hasStockKeepingUnit is the union of the classes gr:Offering and gr:ProductOrService. <br />If attached to a gr:Offering, the SKU will usually reflect a merchant-specific identifier, i.e. one valid only for that particular retailer or shop. <br />If attached to a gr:ProductOrServiceModel, the SKU can reflect either the identifier used by the merchant or the part number used by the official manufacturer of that part. For the latter, gr:hasMPN is a better choice.<br /><br />Important: Be careful when assuming two products or services instances or offering instances to be identical based on the SKU. Since SKUs are unique only for the same gr:BusinessEntity, this can be assumed only when you are sure that the two SKU values refer to the same business entity. Such can be done by taking into account the provenance of the data. As long as instances of gr:Offering are concerned, you can also check that the offerings are being offered by the same gr:Business Entity.<br /><br />Usually, the properties gr:hasEAN_UCC-13 and gr:hasGTIN-14 are much more reliable identifiers, because they are globally unique.<br /><br />See also http://en.wikipedia.org/wiki/Stock_Keeping_Unit."</span> <span style='color: black;'>@en</span></li>
+<li class="asserted"><a href="../annotationproperties/isDefinedBy___449337134.html" class='Annotation Property' title="http://www.w3.org/2000/01/rdf-schema#isDefinedBy">rdfs:isDefinedBy</a> http://purl.org/goodrelations/<b>v1</b> 
+<a href='http://purl.org/goodrelations/v1' class='urlOption' target='_blank' ><img src="../images/external.png" title="Attempt to open link in another window" /></a></li>
+<li class="asserted"><a href="../annotationproperties/label___653429740.html" class='Annotation Property' title="http://www.w3.org/2000/01/rdf-schema#label">rdfs:label</a> <span class='literal'>"has Stock Keeping Unit (0..*)"</span> <span style='color: black;'>@en</span></li>
+</ul>
+</div>
+</div><!-- annotations (3) -->
+
+
+<div id='domains_(1)'>
+<h4>Domains (1)</h4>
+<div class='codebox'>
+<ul>
+<li class="asserted"><a href="../classes/Product___1612032373.html" class='Class' title="http://schema.org/Product">schema:Product</a> <span class='keyword'>or</span> <a href="../classes/Offer___332951266.html" class='Class' title="http://schema.org/Offer">schema:Offer</a> <span class='keyword'>or</span> <a href="../classes/ProductOrService___-498757106.html" class='Class' title="http://purl.org/goodrelations/v1#ProductOrService">'Product&nbsp;or&nbsp;service'</a> <span class='keyword'>or</span> <a href="../classes/Offering___1977865969.html" class='Class' title="http://purl.org/goodrelations/v1#Offering">Offering</a></li>
+</ul>
+</div>
+</div><!-- domains (1) -->
+
+
+<div id='ranges_(1)'>
+<h4>Ranges (1)</h4>
+<div class='codebox'>
+<ul>
+<li class="asserted"><a href="../datatypes/string___799955032.html" class='Datatype' title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
+</ul>
+</div>
+</div><!-- ranges (1) -->
+
+
+<div id='superproperties_(1)'>
+<h4>Superproperties (1)</h4>
+<div class='codebox'>
+<ul>
+<li class="asserted"><a href="productID___-794977552.html" class='Data Property' title="http://schema.org/productID">schema:productID</a></li>
+</ul>
+</div>
+</div><!-- superproperties (1) -->
+
+
+<div id='usage_(1)'>
+<h4>Usage (1)</h4>
+<div class='codebox'>
+<ul>
+<li class="asserted"><span class='Data Property active-entity'>'has&nbsp;Stock&nbsp;Keeping&nbsp;Unit&nbsp;(0..*)'</span> <span class='keyword'>&sube;</span> <a href="productID___-794977552.html" class='Data Property' title="http://schema.org/productID">schema:productID</a></li>
+</ul>
+</div>
+</div><!-- usage (1) -->
+
+</div> <!-- summary -->
+<p class='footer'>
+<a href='http://code.google.com/p/ontology-browser/' target='_blank'>OWL HTML inside</a>
+</p>
+</body>
+</html>
